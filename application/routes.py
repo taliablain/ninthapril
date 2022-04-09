@@ -5,7 +5,7 @@ from flask import render_template, request, jsonify
 import service
 from application import app
 
-@app.route('/books', methods=['GET'])
+@app.route('/books/', methods=['GET'])
 def show_books():
     error = ""
     books = service.get_all_books()
