@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hero Page</title>
+    <title>Books</title>
 </head>
 <body>
 <div>
-{% for book in BOOK_ID %}
-   <p>{{book.BOOK_ID}} {{book.TITLE}} {{book.AUTHOR}} {{book.GENRE}}</p>
+{% for book in BOOK_INFO %}
+    <p>{{book.TITLE}}</p>
 {% endfor %}
     <br>
     {{ message }}

@@ -9,8 +9,8 @@ from application import app
 def show_books():
     error = ""
     books = service.get_all_books()
-    if len(books) == 0:
-        error = "There are no books to display"
+    #if len(books) == 0:
+        #error = "There are no books to display"
     return render_template('book.html', books=books, message=error)
 
 @app.route('/book/<int:BOOK_ID>', methods=['GET'])
