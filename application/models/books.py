@@ -1,7 +1,7 @@
 from application import db
 from dataclasses import dataclass
 
-
+#@dataclass
 class BOOK_INFO(db.Model):
     BOOK_ID: int
     TITLE: str

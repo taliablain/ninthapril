@@ -5,6 +5,11 @@ from flask import render_template, request, jsonify
 import service
 from application import app
 
+@app.route('/home', methods=['GET'])
+def homepage():
+    return render_template('layout.html', title="Home")
+
+
 @app.route('/books/', methods=['GET'])
 def show_books():
     error = ""
@@ -27,5 +32,10 @@ def show_loans(CUST_ID):
     error = ""
     loans = service.get_loans_by_id(CUST_ID)
     if not loans:
-        error = "There is no loans for customer with ID: " + str(CUST_ID)
-    return render_template('show_loans.html', team=team, message=error, title="Book ID's currently on loan")
+        error = "There are no loans for customer with ID: " + str(CUST_ID)
+    return render_template('show_loans.html', loans=loans, message=error, title="Book ID's currently on loan")
+
+@app.route('/all/loans', methods=['GET'])
+def show_books_on_loan():
+    all_loans = service.get_books_on_loan()
+    return render_template('show_loans.html', loans=loans)
